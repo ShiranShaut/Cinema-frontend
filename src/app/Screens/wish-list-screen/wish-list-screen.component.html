@@ -1,0 +1,8 @@
+<p class="title">Your Wishlist</p>
+<hr>
+<div class="flex-container" *ngIf="movies.length > 0; else emptyWishList">
+    <div *ngFor="let movie of movies">
+       <app-movie [movie]="movie" (wishListChanged)="onWishListChanged()"></app-movie>
+    </div>
+</div>
+<ng-template #emptyWishList>Your wish list is empty.</ng-template>

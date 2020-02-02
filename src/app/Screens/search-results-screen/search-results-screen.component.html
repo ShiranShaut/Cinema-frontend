@@ -1,0 +1,11 @@
+<div class="result-container">
+    <p>Search Results For "{{ movieToSearch }}"</p>
+    <hr>
+    <div class="flex-container" *ngIf="movies.length > 0; else noResults">
+        <div *ngFor="let movie of movies">
+            <app-movie [movie]="movie"></app-movie>
+        </div>
+    </div>
+</div>
+
+<ng-template #noResults>No Results.</ng-template>

@@ -1,0 +1,37 @@
+<div class="flex-container">
+    <div class="image-container">
+        <img [src]="movie.imgSrc" [alt]="movie.title" class="movie-image">
+    </div>
+    <div class="text-container">
+        <p class="dialog-title no-borders" mat-dialog-title><b>{{ movie.title }}</b></p>
+        <div mat-dialog-content class="sub-title-container">
+            <p>{{ movie.year }}, {{ movie.runtime }}</p>
+            <p *ngIf="movie.genre != ''">{{ movie.genre }}</p>
+        </div>
+        <p class="plot">{{ movie.plot }}</p>
+        <div mat-dialog-content class="content-container">
+            <p *ngIf="movie.actors != ''"> <b>Actors:</b> {{ movie.actors }}</p>
+            <p *ngIf="movie.type != ''"> <b>Type:</b> {{ movie.type }}</p>
+            <p *ngIf="movie.released != ''"> <b>Released:</b> {{ movie.released }}</p>
+            <p *ngIf="movie.language != ''"><b>Language:</b> {{ movie.language }}</p>
+            <p *ngIf="movie.director != ''"><b>Director:</b> {{ movie.director }}</p>
+            <p *ngIf="movie.writer != ''"><b>Writer:</b> {{ movie.writer }}</p>
+            <p *ngIf="movie.awards != ''"><b>Awards:</b> {{ movie.awards }}</p>
+            <p *ngIf="movie.production != ''"><b>Production:</b> {{ movie.production }}</p>
+            <p *ngIf="movie.director != ''"><b>Director:</b> {{ movie.director }}</p>
+            <p *ngIf="movie.website != 'N/A'"><b>Website:</b> {{ movie.website }}</p>
+            <hr>
+            <div class="rating-container" *ngIf="movie.ratings.length > 0">
+                <p class="reviews-title"><u>Reviews:</u></p>
+                <div *ngFor="let rate of movie.ratings">
+                    <p><b>Source:</b> {{ rate.source }}, <b>Rate:</b> {{ rate.value }}</p>
+                </div>
+                <hr>
+                <div class="rating-container">
+                    <p *ngIf="movie.imdbRating != ''"><b>IMDB rating:</b> {{ movie.imdbRating }}</p>
+                    <p *ngIf="movie.imdbVotes != ''"><b>IMDB Votes:</b> {{ movie.imdbVotes }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

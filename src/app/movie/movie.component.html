@@ -1,0 +1,12 @@
+<div class="movie-image-container">
+    <img [src]="movie.imgSrc" [alt]="movie.title" class="movie-image" (click)="onMovieClicked()">
+    <div class="middle">
+        <a href="#" class="icon" title="Wish List" (click)="onWishListIconClicked()" mat-raised-button>
+            <i class="fa fa-heart" [ngClass]="{'wish-list-icon' : movie.inWishList}"></i>
+        </a>
+        <div class="movie-details" (click)="onMovieClicked()">
+            <p class="detail">{{ movie.title }}</p>
+            <p class="detail">{{ movie.year }}</p>
+        </div>
+    </div>
+</div>

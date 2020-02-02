@@ -1,0 +1,12 @@
+<h1 class="title">Weiss Cinema</h1>
+<div class="flex-container">
+    <input type="search" [(ngModel)]="movieToSearch" (input)="onInputChange()" class="movie-input" placeholder="Enter movie name here...">
+</div>
+<div *ngIf="(!movieToSearch || movieToSearch === ''); then wishList else searchResults"></div>
+<ng-template #wishList>
+    <app-wish-list-screen></app-wish-list-screen>
+</ng-template>
+
+<ng-template #searchResults>
+    <app-search-results-screen [movieToSearch]="movieToSearch" [movies]="movies"></app-search-results-screen>
+</ng-template>
